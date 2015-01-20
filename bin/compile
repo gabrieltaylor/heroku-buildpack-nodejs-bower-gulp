@@ -5,7 +5,7 @@ set -o pipefail   # don't ignore exit codes when piping output
 # set -x          # enable debugging
 
 # Configure directories
-build_dir=$1
+build_dir="$1/client"
 cache_dir=$2
 env_dir=$3
 
@@ -171,7 +171,7 @@ mkdir -p $build_dir/.heroku
 # Save resolved node version in the slug for later reference
 echo $node_version > $build_dir/.heroku/node-version
 
-# If Procfile is absent, try to create one using `npm start`
+If Procfile is absent, try to create one using `npm start`
 if [ ! -e $build_dir/Procfile ]; then
   npm_start=$(cat $build_dir/package.json | $bp_dir/vendor/jq -r .scripts.start)
 
